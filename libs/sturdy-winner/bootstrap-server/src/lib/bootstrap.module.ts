@@ -6,6 +6,7 @@ export class BootstrapModule {
   static bootstrapHandler(
     apiRoute = extractApiRouteFromPath()
   ): NextApiHandler {
+    console.log({ apiRoute });
     return bootstrapServer({
       module: this,
       path: apiRoute,

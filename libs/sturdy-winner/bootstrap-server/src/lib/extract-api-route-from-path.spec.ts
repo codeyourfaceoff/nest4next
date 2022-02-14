@@ -21,6 +21,18 @@ describe('extractApiRouteFromPath', () => {
     ]);
 
     const route = extractApiRouteFromPath();
-    expect(route).toBe('api/mocked-test-with-params/');
+    expect(route).toBe('api/mocked-test-with-params');
+  });
+
+  it('should ignore the index file if trailing', () => {
+    getStackTraceMock.mockReturnValueOnce(['pages/api/index.ts']);
+
+    const route = extractApiRouteFromPath();
+    expect(route).toBe('api');
+
+    getStackTraceMock.mockReturnValueOnce(['pages/api/index/nested.ts']);
+
+    const _route = extractApiRouteFromPath();
+    expect(_route).toBe('api/index/nested');
   });
 });
