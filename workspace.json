@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "sturdy-winner-bootstrap-server": "libs/sturdy-winner/bootstrap-server",
     "web-todo-example": "apps/web-todo-example",
     "web-todo-example-e2e": "apps/web-todo-example-e2e"
   }

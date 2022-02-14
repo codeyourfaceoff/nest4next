@@ -1,0 +1,33 @@
+{
+  "root": "libs/sturdy-winner/bootstrap-server",
+  "sourceRoot": "libs/sturdy-winner/bootstrap-server/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/sturdy-winner/bootstrap-server",
+        "main": "libs/sturdy-winner/bootstrap-server/src/index.ts",
+        "tsConfig": "libs/sturdy-winner/bootstrap-server/tsconfig.lib.json",
+        "assets": ["libs/sturdy-winner/bootstrap-server/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/sturdy-winner/bootstrap-server/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sturdy-winner/bootstrap-server"],
+      "options": {
+        "jestConfig": "libs/sturdy-winner/bootstrap-server/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
