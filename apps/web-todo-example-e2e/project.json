@@ -1,0 +1,28 @@
+{
+  "root": "apps/web-todo-example-e2e",
+  "sourceRoot": "apps/web-todo-example-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/web-todo-example-e2e/cypress.json",
+        "devServerTarget": "web-todo-example:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "web-todo-example:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/web-todo-example-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["web-todo-example"]
+}

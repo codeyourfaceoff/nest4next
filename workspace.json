@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "web-todo-example": "apps/web-todo-example",
+    "web-todo-example-e2e": "apps/web-todo-example-e2e"
+  }
+}
