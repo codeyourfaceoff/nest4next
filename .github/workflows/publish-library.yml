@@ -25,6 +25,11 @@ jobs:
           scope: '@codeyourfaceoff'
           registry-url: 'https://npm.pkg.github.com'
           node-version: '16.x'
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
       - run: npm ci
       - run: npx nx deploy ${{ matrix.package }}
         env:
