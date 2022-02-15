@@ -1,15 +1,15 @@
 import { NextApiHandler } from 'next';
-import { bootstrapServer } from './bootstrap-server';
-import { extractApiRouteFromPath } from './extract-api-route-from-path';
+import { bootstrapServer, BootstrapServerConfig } from './bootstrap-server';
 
 export class BootstrapModule {
-  static bootstrapHandler(
-    apiRoute = extractApiRouteFromPath()
-  ): NextApiHandler {
-    console.log({ apiRoute });
+  static bootstrapHandler(props?: BootstraphandlerConfig): NextApiHandler {
     return bootstrapServer({
       module: this,
-      path: apiRoute,
+      ...props,
     });
   }
 }
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface BootstraphandlerConfig
+  extends Omit<BootstrapServerConfig, 'module'> {}

@@ -18,6 +18,9 @@
       "@cyfo/sturdy-winner/bootstrap-server": [
         "libs/sturdy-winner/bootstrap-server/src/index.ts"
       ],
+      "@cyfo/sturdy-winner/generate-client-lib": [
+        "libs/sturdy-winner/generate-client-lib/src/index.ts"
+      ],
       "@cyfo/sturdy-winner/next-auth": [
         "libs/sturdy-winner/next-auth/src/index.ts"
       ]
