@@ -5,6 +5,18 @@
     "sturdy-winner-generate-client-lib": "libs/sturdy-winner/generate-client-lib",
     "sturdy-winner-next-auth": "libs/sturdy-winner/next-auth",
     "web-todo-example": "apps/web-todo-example",
-    "web-todo-example-e2e": "apps/web-todo-example-e2e"
+    "web-todo-example-e2e": "apps/web-todo-example-e2e",
+    "workspace": {
+      "root": ".",
+      "targets": {
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": true,
+            "commitMessageFormat": "chore(${projectName}): release version ${version}"
+          }
+        }
+      }
+    }
   }
 }
