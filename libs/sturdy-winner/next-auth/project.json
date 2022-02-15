@@ -1,0 +1,34 @@
+{
+  "root": "libs/sturdy-winner/next-auth",
+  "sourceRoot": "libs/sturdy-winner/next-auth/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/sturdy-winner/next-auth",
+        "tsConfig": "libs/sturdy-winner/next-auth/tsconfig.lib.json",
+        "packageJson": "libs/sturdy-winner/next-auth/package.json",
+        "main": "libs/sturdy-winner/next-auth/src/index.ts",
+        "assets": ["libs/sturdy-winner/next-auth/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/sturdy-winner/next-auth/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sturdy-winner/next-auth"],
+      "options": {
+        "jestConfig": "libs/sturdy-winner/next-auth/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
