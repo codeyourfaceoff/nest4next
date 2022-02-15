@@ -8,9 +8,9 @@ jobs:
     strategy:
       matrix:
         package: [
-          'bootstrap-serevr',
-          'generate-client-lib',
-          'next-auth'
+          'sturdy-winner-bootstrap-serevr',
+          'sturdy-winner-generate-client-lib',
+          'sturdy-winner-next-auth'
         ]
     runs-on: ubuntu-latest
     permissions:
