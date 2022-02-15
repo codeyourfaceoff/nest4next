@@ -1,2 +1,1 @@
-import ApiHandler from './index';
-export default ApiHandler;
+export { default, config } from '~/api/api';

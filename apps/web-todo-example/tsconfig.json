@@ -6,7 +6,10 @@
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["node", "jest"],
+    "types": [
+      "node",
+      "jest"
+    ],
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
@@ -26,9 +29,20 @@
       "@cyfo/sturdy-winner/next-auth": [
         "libs/sturdy-winner/next-auth/src/index.ts"
       ],
-      "~/*": ["apps/web-todo-example/lib/*", "./lib/*"]
+      "~/*": [
+        "apps/web-todo-example/lib/*",
+        "./lib/*"
+      ]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
+    "next-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

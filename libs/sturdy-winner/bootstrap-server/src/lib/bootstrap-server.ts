@@ -7,7 +7,7 @@ import { extractApiRouteFromPath } from './extract-api-route-from-path';
 export function bootstrapServer<HandlerType = unknown>({
   module,
   path = extractApiRouteFromPath() || 'api/route',
-  options = { bodyParser: true },
+  options = { bodyParser: false }, // default to not use nestjs' bodyParsing, in favor of nextjs' default
   onCreate,
 }: BootstrapServerConfig): NextApiHandler<HandlerType> {
   const handler: NextApiHandler = async (req, res) => {
@@ -20,9 +20,11 @@ export function bootstrapServer<HandlerType = unknown>({
     await app.init();
 
     const server: Server = app.getHttpServer();
-    const requestHandlers = server.listeners('request');
 
-    requestHandlers.forEach((handler) => handler(req, res));
+    // only grab 1 handler, because we can't reuse req/res across multiple handles
+    const [requestHandler] = server.listeners('request');
+
+    await requestHandler(req, res);
   };
 
   return handler;
