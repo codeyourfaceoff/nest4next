@@ -1,5 +1,9 @@
 {
-  "name": "@cyfo/sturdy-winner/bootstrap-server",
-  "version": "0.1.0",
-  "type": "commonjs"
+  "name": "@codeyourfaceoff/sturdy-winner/bootstrap-server",
+  "version": "0.1.0-rc1",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeyourfaceoff/sturdy-winner.git"
+  }
 }

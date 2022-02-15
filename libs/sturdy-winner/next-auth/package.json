@@ -1,4 +1,8 @@
 {
-  "name": "@cyfo/sturdy-winner/next-auth",
-  "version": "0.1.0"
+  "name": "@codeyourfaceoff/sturdy-winner/next-auth",
+  "version": "0.1.0-rc1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeyourfaceoff/sturdy-winner.git"
+  }
 }

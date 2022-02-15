@@ -27,6 +27,12 @@
         "jestConfig": "libs/sturdy-winner/generate-client-lib/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
     }
   },
   "tags": []

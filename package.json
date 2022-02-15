@@ -1,6 +1,6 @@
 {
   "name": "cyfo",
-  "version": "0.1.0",
+  "version": "0.1.0-rc1",
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
@@ -73,6 +73,7 @@
     "eslint-plugin-react-hooks": "4.3.0",
     "husky": "^7.0.4",
     "jest": "27.2.3",
+    "ngx-deploy-npm": "^3.1.1",
     "prettier": "^2.5.1",
     "react-test-renderer": "17.0.2",
     "ts-jest": "27.0.5",

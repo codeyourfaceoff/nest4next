@@ -28,6 +28,12 @@
         "jestConfig": "libs/sturdy-winner/next-auth/jest.config.js",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
     }
   },
   "tags": []
