@@ -9,13 +9,19 @@
     "types": ["node", "jest"],
     "strict": false,
     "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
     "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "paths": {
       "@cyfo/sturdy-winner/bootstrap-server": [
         "libs/sturdy-winner/bootstrap-server/src/index.ts"
+      ],
+      "@cyfo/sturdy-winner/generate-client-lib": [
+        "libs/sturdy-winner/generate-client-lib/src/index.ts"
       ],
       "@cyfo/sturdy-winner/next-auth": [
         "libs/sturdy-winner/next-auth/src/index.ts"
