@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         package: [
-          'sturdy-winner-bootstrap-serevr',
+          'sturdy-winner-bootstrap-server',
           'sturdy-winner-generate-client-lib',
           'sturdy-winner-next-auth'
         ]
