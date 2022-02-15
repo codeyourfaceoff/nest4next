@@ -1,9 +1,11 @@
-import { Controller, Get, Module } from '@nestjs/common';
+import { Controller, Get, Module, UseGuards } from '@nestjs/common';
 import { BootstrapModule } from '@cyfo/sturdy-winner/bootstrap-server';
+import { NextAuthGuard } from '@cyfo/sturdy-winner/next-auth';
 
 @Controller()
 class AppController {
   @Get()
+  @UseGuards(NextAuthGuard)
   async get() {
     return { hello: 'world' };
   }
@@ -12,6 +14,6 @@ class AppController {
 @Module({
   controllers: [AppController],
 })
-class AppModule extends BootstrapModule {}
+export class AppModule extends BootstrapModule {}
 
 export default AppModule.bootstrapHandler();

@@ -1,11 +1,15 @@
 import styled from '@emotion/styled';
+import { GetServerSideProps } from 'next';
+import { getServerSession, Session } from 'next-auth';
+import { signOut } from 'next-auth/react';
+import { options } from './api/auth/[...nextauth]';
 
 const StyledPage = styled.div`
   .page {
   }
 `;
 
-export function Index() {
+export function Index(props: { session: Session }) {
   /*
    * Replace the elements below with your own.
    *
@@ -17,9 +21,32 @@ export function Index() {
         <div className="container">
           <div id="welcome">
             <h1>
-              <span> Hello there, </span>
+              <span> Hello there, {props.session.user.email || ''}</span>
               Welcome web-todo-example 👋
             </h1>
+          </div>
+
+          <div className="container">
+            <div className="text-container">
+              <a
+                id="sign-out-button"
+                className="button-pill rounded shadow"
+                style={{ cursor: 'pointer' }}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => signOut()}
+              >
+                <svg
+                  fill="currentColor"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>Sign Out</title>
+                </svg>
+                <span>Sign Out</span>
+              </a>
+            </div>
           </div>
 
           <div id="hero" className="rounded">
@@ -416,5 +443,34 @@ export function Index() {
     </StyledPage>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const _session = await getServerSession(context, options);
+  const session = serializeSession(_session);
+
+  if (!session?.user) {
+    return {
+      redirect: {
+        destination: '/api/auth/signin',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+
+  function serializeSession(session: Session | null) {
+    if (!session) return session;
+    const serializedUser = Object.entries(session.user).filter(
+      ([_key, value]) => typeof value !== 'undefined'
+    );
+    return {
+      ...session,
+      user: serializedUser,
+    };
+  }
+};
 
 export default Index;
