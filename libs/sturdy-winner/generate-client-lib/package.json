@@ -6,5 +6,8 @@
     "type": "git",
     "url": "https://github.com/codeyourfaceoff/sturdy-winner.git"
   },
-  "private": false
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
 }
