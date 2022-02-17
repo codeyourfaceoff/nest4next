@@ -1,8 +1,10 @@
-import { NextApiHandler } from 'next';
+import { NextApiHandlerWithNest } from '..';
 import { bootstrapServer, BootstrapServerConfig } from './bootstrap-server';
 
 export class BootstrapModule {
-  static bootstrapHandler(props?: BootstraphandlerConfig): NextApiHandler {
+  static bootstrapHandler(
+    props?: BootstraphandlerConfig
+  ): NextApiHandlerWithNest {
     return bootstrapServer({
       module: this,
       ...props,
