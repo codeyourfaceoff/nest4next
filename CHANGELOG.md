@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.3](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.2...v0.1.1-rc.3) (2022-02-17)
+
+
+### Features
+
+* **generate-client-lib:** :children_crossing: pass orval opts ([7cc980b](https://github.com/codeyourfaceoff/sturdy-winner/commit/7cc980bbee763fd06f402cf4f85b8aedefba2819))
+
+
+
 ## [0.1.1-rc.2](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.1...v0.1.1-rc.2) (2022-02-17)
 
 
