@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.5](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.4...v0.1.1-rc.5) (2022-02-17)
+
+
+### Bug Fixes
+
+* **sturdy-winner-bootstrap-server:** :label: proper type for BootstrapModule ([a4ef1fa](https://github.com/codeyourfaceoff/sturdy-winner/commit/a4ef1fa8811d2771a5dcc7ce2d0e1f4c24428a8e))
+
+
+
 ## [0.1.1-rc.4](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.3...v0.1.1-rc.4) (2022-02-17)
 
 
