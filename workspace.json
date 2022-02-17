@@ -22,7 +22,8 @@
             "syncVersions": true,
             "commitMessageFormat": "chore(${projectName}): release version ${version}",
             "preid": "rc",
-            "releaseAs": "prerelease"
+            "releaseAs": "prerelease",
+            "push": true
           }
         }
       }
