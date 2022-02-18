@@ -9,5 +9,11 @@
   "private": false,
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "@nestjs/swagger": "*",
+    "next": "^12.1.0"
   }
 }

@@ -8,5 +8,11 @@
   "private": false,
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "next": "^12.1.0",
+    "next-auth": "*"
   }
 }
