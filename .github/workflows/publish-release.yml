@@ -11,6 +11,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Debug
+        env:
+          CONTAINS_RC: contains(${{ github.ref }}, '-rc')
+        run:
+          - echo "CONTAINS: $CONTAINS_RC and GITHUB_REF: $GITHUB_REF"
+  
       - name: Release
         uses: softprops/action-gh-release@v1
         run:
