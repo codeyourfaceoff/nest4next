@@ -2,6 +2,21 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.7](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.6...v0.1.1-rc.7) (2022-02-18)
+
+
+### Bug Fixes
+
+* ci - auto release publishing ([d0a2e65](https://github.com/codeyourfaceoff/sturdy-winner/commit/d0a2e650e140705f76ffbcc81cec4cfedfd1577d))
+* debugging pre-release step ([7cf256b](https://github.com/codeyourfaceoff/sturdy-winner/commit/7cf256b2433a910a6cdcf2eb8d0df38bc014b8bc))
+* debugging pre-release step ([efe4fb3](https://github.com/codeyourfaceoff/sturdy-winner/commit/efe4fb3f648194e4a4ceb877260ea795da5eb553))
+* debugging pre-release step ([c0fd4d4](https://github.com/codeyourfaceoff/sturdy-winner/commit/c0fd4d49c01508cace8d11bb89908d7b5e5a2587))
+* debugging pre-release step ([20fa0a6](https://github.com/codeyourfaceoff/sturdy-winner/commit/20fa0a69a4f1394bcff40c412e9c5d5e3d942b74))
+* debugging pre-release step ([d4fcd5b](https://github.com/codeyourfaceoff/sturdy-winner/commit/d4fcd5bffe44b7ca26648676ad3d9b6c06c0f0e2))
+* debugging pre-release step ([7662cb6](https://github.com/codeyourfaceoff/sturdy-winner/commit/7662cb6b2f3fda6b4fd7dfb4dfb65b7b6bfb7c6e))
+
+
+
 ## [0.1.1-rc.13](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.12...v0.1.1-rc.13) (2022-02-18)
 
 
