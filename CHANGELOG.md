@@ -2,6 +2,21 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.6](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.5...v0.1.1-rc.6) (2022-02-18)
+
+
+### Bug Fixes
+
+* **libs:** :pushpin: declare peerDeps ([2df6bca](https://github.com/codeyourfaceoff/sturdy-winner/commit/2df6bca4dbfaabb32fe8e960f01595b604480846))
+* **sturdy-winner-bootstrap-server:** default to nestjs bodyParser ([1d03a59](https://github.com/codeyourfaceoff/sturdy-winner/commit/1d03a590a91b2c02b51d205720780a57485cd0bd))
+
+
+### Features
+
+* **sturdy-winner-bootstrap-server:** add withNextJsConfig helper ([35900d0](https://github.com/codeyourfaceoff/sturdy-winner/commit/35900d0f268be6875680d077a58a1cc1c8cbb897))
+
+
+
 ## [0.1.1-rc.5](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.4...v0.1.1-rc.5) (2022-02-17)
 
 
