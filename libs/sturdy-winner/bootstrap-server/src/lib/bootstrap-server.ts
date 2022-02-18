@@ -7,7 +7,7 @@ import { extractApiRouteFromPath } from './extract-api-route-from-path';
 export function bootstrapServer<HandlerType = unknown>({
   module,
   path = extractApiRouteFromPath() || 'api/route',
-  options = { bodyParser: false }, // default to not use nestjs' bodyParsing, in favor of nextjs' default
+  options = { bodyParser: true }, // default to use nestjs' bodyParsing, in favor of nextjs' default
   onCreate,
 }: BootstrapServerConfig): NextApiHandlerWithNest<HandlerType> {
   const handler: NextApiHandlerWithNest = async (req, res) => {
