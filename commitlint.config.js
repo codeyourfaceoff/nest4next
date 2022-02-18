@@ -24,7 +24,7 @@ const Configuration = {
    * Any rules defined here will override rules from @commitlint/config-conventional
    */
   rules: {
-    'scope-enum': getScopes(['testing-scope']),
+    'scope-enum': getScopes(['testing-scope', 'libs']),
   },
   /*
    * Functions that return true if commitlint should ignore the given message.
