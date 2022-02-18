@@ -1,4 +1,4 @@
-name: Main
+name: Publish Release From Tag
 
 on:
   push:
@@ -11,15 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Debug
-        env:
-          CONTAINS_RC: ${{ contains(github.ref, '-rc') }}
-        run: echo "contains = $CONTAINS_REF and githuRef = $GITHUB_REF"
   
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           body_path: ${{ github.workspace }}/CHANGELOG.md
           token: ${{ secrets.GITHUB_TOKEN }}
-          prerelease: contains(github.ref, '-rc')
+          prerelease: ${{ contains(github.ref, '-rc') }}
