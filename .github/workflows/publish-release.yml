@@ -15,7 +15,7 @@ jobs:
       - name: Debug
         env:
           CONTAINS_RC: contains(${{ github.ref }}, '-rc')
-        run: echo "CONTAINS: $CONTAINS_RC and GITHUB_REF: $GITHUB_REF"
+        run: echo "contains = $CONTAINS_REF and githuRef = $GITHUB_REF"
   
       - name: Release
         uses: softprops/action-gh-release@v1
