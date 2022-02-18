@@ -19,8 +19,6 @@ jobs:
   
       - name: Release
         uses: softprops/action-gh-release@v1
-        run:
-          echo contains(${{ github.ref }}, '-rc')
         with:
           body_path: ${{ github.workspace }}/CHANGELOG.md
           token: ${{ secrets.GITHUB_TOKEN }}
