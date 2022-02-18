@@ -1,7 +1,7 @@
 import { INestApplication, NestApplicationOptions } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { Server } from 'http';
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse, PageConfig } from 'next';
 import { extractApiRouteFromPath } from './extract-api-route-from-path';
 
 export function bootstrapServer<HandlerType = unknown>({
@@ -31,6 +31,21 @@ export function bootstrapServer<HandlerType = unknown>({
     return app;
   };
 
+  handler.withNextJsConfig = (config = {}) =>
+    (handler.config = {
+      ...config,
+      api: {
+        ...config.api,
+        bodyParser: options.bodyParser
+          ? false
+          : {
+              ...config.api?.bodyParser,
+            },
+      },
+    });
+
+  handler.config = handler.withNextJsConfig();
+
   return handler;
 }
 
@@ -46,4 +61,7 @@ export interface NextApiHandlerWithNest<ResponseType = any> {
     req: NextApiRequest,
     res: NextApiResponse<ResponseType>
   ): Promise<INestApplication>;
+
+  config: PageConfig;
+  withNextJsConfig: (config?: PageConfig) => PageConfig;
 }
