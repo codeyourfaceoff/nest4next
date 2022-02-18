@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.8](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.7...v0.1.1-rc.8) (2022-02-18)
+
+
+### Bug Fixes
+
+* debugging pre-release step ([7662cb6](https://github.com/codeyourfaceoff/sturdy-winner/commit/7662cb6b2f3fda6b4fd7dfb4dfb65b7b6bfb7c6e))
+
+
+
 ## [0.1.1-rc.7](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.6...v0.1.1-rc.7) (2022-02-18)
 
 
