@@ -1,7 +1,9 @@
 name: Publish package to GitHub Packages
+
 on:
-  release:
-    types: [published, prereleased]
+  push:
+    tags:
+      - "v*"
 
 jobs:
   publish:
