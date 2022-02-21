@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.13](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.12...v0.1.1-rc.13) (2022-02-21)
+
+
+### Bug Fixes
+
+* **sturdy-winner-next-auth:** :pushpin: including next-auth as dep for patching ([56bad68](https://github.com/codeyourfaceoff/sturdy-winner/commit/56bad6895249a1965529d1cef7a0be531be70745))
+
+
+
 ## [0.1.1-rc.12](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.11...v0.1.1-rc.12) (2022-02-21)
 
 
