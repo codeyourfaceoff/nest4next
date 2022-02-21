@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.12](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.11...v0.1.1-rc.12) (2022-02-21)
+
+
+### Bug Fixes
+
+* **workspace:** :pushpin: next peer dep to * for now ([b2a5b5f](https://github.com/codeyourfaceoff/sturdy-winner/commit/b2a5b5fe049507e5259b3c63b570deb5a2437a4d))
+
+
+
 ## [0.1.1-rc.11](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.10...v0.1.1-rc.11) (2022-02-21)
 
 
