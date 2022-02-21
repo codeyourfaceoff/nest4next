@@ -13,13 +13,13 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "patch-package": "*"
+    "patch-package": "*",
+    "next-auth": "*"
   },
   "peerDependencies": {
     "@nestjs/common": "*",
     "@nestjs/core": "*",
     "next": "*",
-    "next-auth": "*",
     "react": "*"
   }
 }
