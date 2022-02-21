@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.10](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.9...v0.1.1-rc.10) (2022-02-21)
+
+
+### Bug Fixes
+
+* **sturdy-winner-bootstrap-server:** :adhesive_bandage: bootstrapping options ([ba989b9](https://github.com/codeyourfaceoff/sturdy-winner/commit/ba989b9359b5c330a8c2418ec9dbae44025c1917))
+
+
+
 ## [0.1.1-rc.9](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.8...v0.1.1-rc.9) (2022-02-18)
 
 
