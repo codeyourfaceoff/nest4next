@@ -18,7 +18,7 @@
   "peerDependencies": {
     "@nestjs/common": "*",
     "@nestjs/core": "*",
-    "next": "^12.1.1-canary.1",
+    "next": "*",
     "next-auth": "*",
     "react": "*"
   }
