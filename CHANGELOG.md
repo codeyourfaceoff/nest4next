@@ -2,6 +2,22 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.11](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.10...v0.1.1-rc.11) (2022-02-21)
+
+
+### Bug Fixes
+
+* **sturdy-winner-next-auth:** :adhesive_bandage: import of next-auth/init ([a99d70e](https://github.com/codeyourfaceoff/sturdy-winner/commit/a99d70ef40b9e2d62352afed9a8f2fe702c68793))
+* **sturdy-winner-next-auth:** :pushpin: next 12.1.1-canary.1 ([2d29aa3](https://github.com/codeyourfaceoff/sturdy-winner/commit/2d29aa3f4c569586cc4f1b6a6f5340dc9918ab16))
+
+
+### Features
+
+* **sturdy-winner-next-auth:** :rocket: initial version of the module ([352ed52](https://github.com/codeyourfaceoff/sturdy-winner/commit/352ed52f151620bd240d9d6867f161539f762a30))
+* **web-todo-example:** update to match lib packages ([220453d](https://github.com/codeyourfaceoff/sturdy-winner/commit/220453da6e2538e4a58a158205ce5ec48b496845))
+
+
+
 ## [0.1.1-rc.10](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.9...v0.1.1-rc.10) (2022-02-21)
 
 

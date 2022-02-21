@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.11](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.10...v0.1.1-rc.11) (2022-02-21)
+
+
+### Features
+
+* **web-todo-example:** update to match lib packages ([220453d](https://github.com/codeyourfaceoff/sturdy-winner/commit/220453da6e2538e4a58a158205ce5ec48b496845))
+
+
+
 ## [0.1.1-rc.10](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.9...v0.1.1-rc.10) (2022-02-21)
 
 
