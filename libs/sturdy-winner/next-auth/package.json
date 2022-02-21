@@ -9,10 +9,17 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "patch-package": "*"
+  },
   "peerDependencies": {
     "@nestjs/common": "*",
     "@nestjs/core": "*",
     "next": "^12.1.1-canary.1",
-    "next-auth": "*"
+    "next-auth": "*",
+    "react": "*"
   }
 }

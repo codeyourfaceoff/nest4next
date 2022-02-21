@@ -11,7 +11,14 @@
         "tsConfig": "libs/sturdy-winner/next-auth/tsconfig.lib.json",
         "packageJson": "libs/sturdy-winner/next-auth/package.json",
         "main": "libs/sturdy-winner/next-auth/src/index.ts",
-        "assets": ["libs/sturdy-winner/next-auth/*.md"]
+        "assets": [
+          "libs/sturdy-winner/next-auth/*.md",
+          {
+            "glob": "*",
+            "input": "patches",
+            "output": "patches"
+          }
+        ]
       }
     },
     "lint": {

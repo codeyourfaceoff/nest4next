@@ -1,0 +1,12 @@
+diff --git a/node_modules/next-auth/package.json b/node_modules/next-auth/package.json
+index 06b0650..07ff88e 100644
+--- a/node_modules/next-auth/package.json
++++ b/node_modules/next-auth/package.json
+@@ -30,6 +30,7 @@
+     "./jwt": "./jwt/index.js",
+     "./react": "./react/index.js",
+     "./core": "./core/index.js",
++    "./core/init": "./core/init.js",
+     "./next": "./next/index.js",
+     "./middleware": "./middleware.js",
+     "./client/_utils": "./client/_utils.js",

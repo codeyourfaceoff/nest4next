@@ -1,8 +1,7 @@
 import { Injectable, Provider } from '@nestjs/common';
 import { NextAuthOptions } from 'next-auth';
 // helper function is not exported by package so need to bypass esm check by going direct to the folder
-import { init } from 'node_modules/next-auth/core/init';
-
+import { init } from 'next-auth/core/init';
 @Injectable()
 export class NextAuthOptionProvider {
   private options: NextAuthOptions;
