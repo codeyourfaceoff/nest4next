@@ -10,8 +10,12 @@ export function bootstrapServer<HandlerType = unknown>({
   options = { bodyParser: true }, // default to use nestjs' bodyParsing, in favor of nextjs' default
   onCreate,
 }: BootstrapServerConfig): NextApiHandlerWithNest<HandlerType> {
+  const appOptions: NestApplicationOptions = {
+    bodyParser: true,
+    ...options,
+  };
   const handler: NextApiHandlerWithNest = async (req, res) => {
-    const app = await NestFactory.create(module, options);
+    const app = await NestFactory.create(module, appOptions);
 
     // because our routes are served under `/api`
     app.setGlobalPrefix(path);
@@ -35,8 +39,8 @@ export function bootstrapServer<HandlerType = unknown>({
     (handler.config = {
       ...config,
       api: {
-        ...config.api,
-        bodyParser: options.bodyParser
+        externalResolver: true,
+        bodyParser: appOptions.bodyParser
           ? false
           : {
               ...config.api?.bodyParser,
@@ -56,6 +60,7 @@ export interface BootstrapServerConfig {
   onCreate?: (app: INestApplication) => void | Promise<void>;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface NextApiHandlerWithNest<ResponseType = any> {
   (
     req: NextApiRequest,
