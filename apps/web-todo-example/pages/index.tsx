@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { GetServerSideProps } from 'next';
 import { getServerSession, Session } from 'next-auth';
 import { signOut } from 'next-auth/react';
-import { options } from './api/auth/[...nextauth]';
+import { options } from '~/auth';
 
 const StyledPage = styled.div`
   .page {
