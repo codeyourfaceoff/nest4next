@@ -10,7 +10,7 @@
     "access": "public"
   },
   "scripts": {
-    "postinstall": "patch-package"
+    "postinstall": "patch-package --patch-dir ./node_modules/@codeyourfaceoff/sturdy-winner-next-auth/patches"
   },
   "dependencies": {
     "patch-package": "*",
