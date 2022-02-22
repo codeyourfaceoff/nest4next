@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.15](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.14...v0.1.1-rc.15) (2022-02-22)
+
+
+### Performance Improvements
+
+* **libs:** :construction_worker: attempt to cache node_modules on install ([9915780](https://github.com/codeyourfaceoff/sturdy-winner/commit/99157807ab714f2f0de7295d7dfaca5822e7c20e))
+
+
+
 ## [0.1.1-rc.14](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.13...v0.1.1-rc.14) (2022-02-22)
 
 
