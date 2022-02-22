@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.14](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.13...v0.1.1-rc.14) (2022-02-22)
+
+
+### Bug Fixes
+
+* **sturdy-winner-next-auth:** patch-package points to mod directory ([d36c46b](https://github.com/codeyourfaceoff/sturdy-winner/commit/d36c46bf03ff5543cd465e2e016ff594ce6b02d0))
+
+
+
 ## [0.1.1-rc.13](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.12...v0.1.1-rc.13) (2022-02-21)
 
 
