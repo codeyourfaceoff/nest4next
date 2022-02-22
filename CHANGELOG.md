@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.17](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.16...v0.1.1-rc.17) (2022-02-22)
+
+
+### Features
+
+* **sturdy-winner-next-auth:** :adhesive_bandage: add async forFeature method ([a56e9ee](https://github.com/codeyourfaceoff/sturdy-winner/commit/a56e9eeab98ae01a2c7a8eed18e98142932c5363))
+
+
+
 ## [0.1.1-rc.16](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.15...v0.1.1-rc.16) (2022-02-22)
 
 
