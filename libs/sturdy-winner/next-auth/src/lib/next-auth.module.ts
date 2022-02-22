@@ -3,9 +3,15 @@ import { NextApiHandler } from 'next';
 import NextAuth, { NextAuthOptions } from 'next-auth';
 
 import { NextAuthController } from './next-auth.controller';
-import { createNextAuthHandlerProvider } from './next-auth-handler.service';
-import { createNextAuthOptionsProvider } from './next-auth-options.service';
 import { NextAuthService } from './next-auth.service';
+import {
+  NextAuthHandlerService,
+  createNextAuthHandlerProvider,
+} from './next-auth-handler.service';
+import {
+  NextAuthOptionProvider,
+  createNextAuthOptionsProvider,
+} from './next-auth-options.service';
 
 @Module({})
 export class NextAuthModule {
@@ -38,6 +44,46 @@ export class NextAuthModule {
         NextAuthService,
       ],
     };
+  }
+
+  static forAsyncFeature(
+    optionsCallback: () =>
+      | Promise<NextAuthModuleOptions>
+      | NextAuthModuleOptions
+  ): DynamicModule {
+    let nextAuth: NextApiHandler;
+    return {
+      module: NextAuthModule,
+      providers: [
+        {
+          provide: NextAuthOptionProvider,
+          useFactory: async () => {
+            const options = await optionsCallback();
+            return new NextAuthOptionProvider(options.nextAuthOptions);
+          },
+        },
+        {
+          provide: NextAuthHandlerService,
+          useFactory: async () => {
+            const nextAuth = await getNextAuth();
+            return new NextAuthHandlerService(nextAuth);
+          },
+        },
+        NextAuthService,
+      ],
+      exports: [
+        NextAuthService,
+        NextAuthOptionProvider,
+        NextAuthHandlerService,
+      ],
+    };
+
+    async function getNextAuth() {
+      if (nextAuth) return nextAuth;
+      const options = await optionsCallback();
+      nextAuth = NextAuth(options.nextAuthOptions);
+      return nextAuth;
+    }
   }
 }
 
