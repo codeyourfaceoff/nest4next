@@ -2,6 +2,7 @@ import { Injectable, Provider } from '@nestjs/common';
 import { NextAuthOptions } from 'next-auth';
 // helper function is not exported by package so need to bypass esm check by going direct to the folder
 import { init } from 'next-auth/core/init';
+import { isSecureCookeEnvironment } from './next-auth.utils';
 @Injectable()
 export class NextAuthOptionProvider {
   private options: NextAuthOptions;
@@ -12,7 +13,10 @@ export class NextAuthOptionProvider {
 
   async init(options: NextAuthOptions) {
     const initialized = await init({
-      userOptions: options,
+      userOptions: {
+        useSecureCookies: isSecureCookeEnvironment(), // by default the package will look this up for you unless you override it, this mimics that behavior while still allwoing overwriting from the options
+        ...options,
+      },
       action: '',
       cookies: {},
       isPost: false,
