@@ -1,7 +1,8 @@
 import { getToken, GetTokenParams } from 'next-auth/jwt';
 
 export const isSecureCookeEnvironment = () => {
-  if (process.env.NEXTAUTH_URL.startsWith('https://')) return true;
+  if (process.env.NEXTAUTH_URL?.startsWith('https://')) return true;
+  if (process.env.VERCEL_URL?.startsWith('https://')) return true;
   if (process.env.VERCEL) return true;
   if (process.env.NODE_ENV === 'production') return true;
 
