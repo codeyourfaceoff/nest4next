@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.19](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.18...v0.1.1-rc.19) (2022-02-24)
+
+
+### Bug Fixes
+
+* **sturdy-winner-next-auth:** ssr-helpers use sec cookie env ([ed01a43](https://github.com/codeyourfaceoff/sturdy-winner/commit/ed01a43359c97cdbe72c97c0a0bd702c03b768ee))
+
+
+
 ## [0.1.1-rc.18](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.17...v0.1.1-rc.18) (2022-02-24)
 
 
