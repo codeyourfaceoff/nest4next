@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.20](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.19...v0.1.1-rc.20) (2022-02-24)
+
+
+### Features
+
+* **sturdy-winner-next-auth:** support VERCEL_URL ([ab671f0](https://github.com/codeyourfaceoff/sturdy-winner/commit/ab671f09938279b8c7996d832d4a9cb3c4e5e4d0))
+
+
+
 ## [0.1.1-rc.19](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.18...v0.1.1-rc.19) (2022-02-24)
 
 
