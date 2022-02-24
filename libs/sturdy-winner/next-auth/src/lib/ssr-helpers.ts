@@ -4,9 +4,15 @@ import { ParsedUrlQuery } from 'querystring';
 
 import { NextAuthService } from './next-auth.service';
 import { NextAuthOptionProvider } from './next-auth-options.service';
+import { isSecureCookeEnvironment } from './next-auth.utils';
 
 export const createGetAuthSession = (options: NextAuthOptions) => {
-  const authService = new NextAuthService(new NextAuthOptionProvider(options));
+  const authService = new NextAuthService(
+    new NextAuthOptionProvider({
+      useSecureCookies: isSecureCookeEnvironment(),
+      ...options,
+    })
+  );
   return async (
     context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
   ): Promise<Session | null> => {
