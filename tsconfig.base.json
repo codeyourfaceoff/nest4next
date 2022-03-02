@@ -15,9 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cyfo/bootstrap-server": ["libs/bootstrap-server/src/index.ts"],
-      "@cyfo/generate-client-lib": ["libs/generate-client-lib/src/index.ts"],
-      "@cyfo/next-auth": ["libs/next-auth/src/index.ts"]
+      "@nest4next/bootstrap-server": ["libs/bootstrap-server/src/index.ts"],
+      "@nest4next/generate-client-lib": [
+        "libs/generate-client-lib/src/index.ts"
+      ],
+      "@nest4next/next-auth": ["libs/next-auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

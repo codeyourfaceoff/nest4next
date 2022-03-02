@@ -1,5 +1,5 @@
-import { NextAuthModule } from '@cyfo/next-auth';
-import { bootstrapServer } from '@cyfo/bootstrap-server';
+import { NextAuthModule } from '@nest4next/next-auth';
+import { bootstrapServer } from '@nest4next/bootstrap-server';
 
 import { options } from '~/auth';
 

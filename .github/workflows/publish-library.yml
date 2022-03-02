@@ -10,9 +10,9 @@ jobs:
     strategy:
       matrix:
         package: [
-          'sturdy-winner-bootstrap-server',
-          'sturdy-winner-generate-client-lib',
-          'sturdy-winner-next-auth'
+          'bootstrap-server',
+          'generate-client-lib',
+          'next-auth'
         ]
     runs-on: ubuntu-latest
     permissions:
@@ -24,8 +24,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           # Defaults to the user or organization that owns the workflow file
-          scope: '@codeyourfaceoff'
-          registry-url: 'https://npm.pkg.github.com'
+          scope: '@nest4next'
           node-version: '16.x'
       - uses: actions/cache@v2
         with:

@@ -6,10 +6,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "types": [
-      "node",
-      "jest"
-    ],
+    "types": ["node", "jest"],
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
@@ -20,29 +17,14 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "paths": {
-      "@cyfo/sturdy-winner/bootstrap-server": [
-        "libs/sturdy-winner/bootstrap-server/src/index.ts"
+      "@nest4next/bootstrap-server": ["libs/bootstrap-server/src/index.ts"],
+      "@nest4next/generate-client-lib": [
+        "libs/generate-client-lib/src/index.ts"
       ],
-      "@cyfo/sturdy-winner/generate-client-lib": [
-        "libs/sturdy-winner/generate-client-lib/src/index.ts"
-      ],
-      "@cyfo/sturdy-winner/next-auth": [
-        "libs/sturdy-winner/next-auth/src/index.ts"
-      ],
-      "~/*": [
-        "apps/web-todo-example/lib/*",
-        "./lib/*"
-      ]
+      "@nest4next/next-auth": ["libs/next-auth/src/index.ts"],
+      "~/*": ["apps/web-todo-example/lib/*", "./lib/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    "**/*.jsx",
-    "next-env.d.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "next-env.d.ts"],
+  "exclude": ["node_modules"]
 }

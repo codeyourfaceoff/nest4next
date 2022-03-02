@@ -1,7 +1,7 @@
 import { AppModule } from '~/api';
 import { resolve } from 'path';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { generateClientLib } from '@cyfo/generate-client-lib';
+import { generateClientLib } from '@nest4next/generate-client-lib';
 
 const clientLibPath = resolve(
   process.cwd(),

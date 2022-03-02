@@ -1,10 +1,10 @@
 {
-  "name": "@cyfo/bootstrap-server",
+  "name": "@nest4next/bootstrap-server",
   "version": "0.1.1-rc.20",
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/codeyourfaceoff/sturdy-winner.git"
+    "url": "https://github.com/codeyourfaceoff/nest4next.git"
   },
   "private": false,
   "publishConfig": {
