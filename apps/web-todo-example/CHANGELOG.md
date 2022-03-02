@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.21](https://github.com/codeyourfaceoff/sturdy-winner/compare/v0.1.1-rc.20...v0.1.1-rc.21) (2022-03-02)
+
+
+
 ## [0.1.1-rc.20](https://github.com/codeyourfaceoff/compare/v0.1.1-rc.19...v0.1.1-rc.20) (2022-02-24)
 
 
