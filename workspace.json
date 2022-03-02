@@ -2,7 +2,7 @@
   "version": 2,
   "projects": {
     "bootstrap-server": "libs/bootstrap-server",
-    "sturdy-winner-generate-client-lib": "libs/sturdy-winner/generate-client-lib",
+    "generate-client-lib": "libs/generate-client-lib",
     "sturdy-winner-next-auth": "libs/sturdy-winner/next-auth",
     "web-todo-example": "apps/web-todo-example",
     "web-todo-example-e2e": "apps/web-todo-example-e2e",
