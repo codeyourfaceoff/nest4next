@@ -17,9 +17,7 @@
     "paths": {
       "@cyfo/bootstrap-server": ["libs/bootstrap-server/src/index.ts"],
       "@cyfo/generate-client-lib": ["libs/generate-client-lib/src/index.ts"],
-      "@cyfo/sturdy-winner/next-auth": [
-        "libs/sturdy-winner/next-auth/src/index.ts"
-      ]
+      "@cyfo/next-auth": ["libs/next-auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,4 +1,4 @@
-import { NextAuthModule } from '@cyfo/sturdy-winner/next-auth';
+import { NextAuthModule } from '@cyfo/next-auth';
 import { bootstrapServer } from '@cyfo/bootstrap-server';
 
 import { options } from '~/auth';
