@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'sturdy-winner-bootstrap-server',
-  preset: '../../../jest.preset.js',
+  displayName: 'bootstrap-server',
+  preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -11,5 +11,5 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../coverage/libs/sturdy-winner/bootstrap-server',
+  coverageDirectory: '../../coverage/libs/bootstrap-server',
 };

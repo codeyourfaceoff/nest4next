@@ -15,9 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cyfo/sturdy-winner/bootstrap-server": [
-        "libs/sturdy-winner/bootstrap-server/src/index.ts"
-      ],
+      "@cyfo/bootstrap-server": ["libs/bootstrap-server/src/index.ts"],
       "@cyfo/sturdy-winner/generate-client-lib": [
         "libs/sturdy-winner/generate-client-lib/src/index.ts"
       ],
