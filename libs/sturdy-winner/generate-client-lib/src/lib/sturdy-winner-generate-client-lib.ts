@@ -9,7 +9,7 @@ export async function generateClientLib(
   document: OpenAPIObject,
   props: IGenerateReactQueryProps
 ) {
-  const tmpPath = resolve(tmpdir(), 'docs.json');
+  const tmpPath = resolve(tmpdir(), Date.now() + '-docs.json');
   await writeFile(tmpPath, JSON.stringify(document), 'utf8');
 
   await generate({
