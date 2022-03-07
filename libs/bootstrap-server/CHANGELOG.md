@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.25](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.24...v0.1.1-rc.25) (2022-03-07)
+
+
+### Features
+
+* **bootstrap-server:** :sparkles: add app to handler export ([145e348](https://github.com/codeyourfaceoff/nest4next/commit/145e3488aba0b1fdfdb41265952d1504ea3d2453))
+
+
+
 ## [0.1.1-rc.24](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.23...v0.1.1-rc.24) (2022-03-02)
 
 

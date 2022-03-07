@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.25](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.24...v0.1.1-rc.25) (2022-03-07)
+
+
+### Features
+
+* **generate-client-lib:** :sparkles: add proxyRequestHandler lib ([bdf7451](https://github.com/codeyourfaceoff/nest4next/commit/bdf7451b80522c911705f5d8c9fadaf7434601fa))
+
+
+
 ## [0.1.1-rc.24](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.23...v0.1.1-rc.24) (2022-03-02)
 
 
