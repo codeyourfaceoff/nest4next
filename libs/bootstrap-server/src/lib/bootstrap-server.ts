@@ -14,16 +14,18 @@ export function bootstrapServer<HandlerType = unknown>({
     bodyParser: true,
     ...options,
   };
+  const appProm = bootstrapApp({
+    appOptions,
+    module,
+    path,
+    onCreate,
+  });
+  let app: INestApplication, server: Server;
   const handler: NextApiHandlerWithNest = async (req, res) => {
-    const app = await NestFactory.create(module, appOptions);
-
-    // because our routes are served under `/api`
-    app.setGlobalPrefix(path);
-    await onCreate?.(app);
-
-    await app.init();
-
-    const server: Server = app.getHttpServer();
+    if (!app) {
+      app = await appProm;
+      server = app.getHttpServer();
+    }
 
     // only grab 1 handler, because we can't reuse req/res across multiple handles
     const [requestHandler] = server.listeners('request');
@@ -34,6 +36,8 @@ export function bootstrapServer<HandlerType = unknown>({
 
     return app;
   };
+
+  handler.app = () => appProm;
 
   handler.withNextJsConfig = (config = {}) =>
     (handler.config = {
@@ -53,6 +57,25 @@ export function bootstrapServer<HandlerType = unknown>({
   return handler;
 }
 
+async function bootstrapApp({
+  module,
+  onCreate,
+  appOptions,
+  path,
+}: Omit<BootstrapServerConfig, 'options' | 'path'> & {
+  path: string;
+  appOptions: NestApplicationOptions;
+}) {
+  const app = await NestFactory.create(module, appOptions);
+
+  // because our routes are served under `/api`
+  app.setGlobalPrefix(path);
+  await onCreate?.(app);
+
+  await app.init();
+  return app;
+}
+
 export interface BootstrapServerConfig {
   module: unknown;
   path?: string;
@@ -69,4 +92,5 @@ export interface NextApiHandlerWithNest<ResponseType = any> {
 
   config: PageConfig;
   withNextJsConfig: (config?: PageConfig) => PageConfig;
+  app: () => Promise<INestApplication>;
 }
