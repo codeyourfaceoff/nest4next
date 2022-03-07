@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.26](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.25...v0.1.1-rc.26) (2022-03-07)
+
+
+### Bug Fixes
+
+* **generate-client-lib:** export proxyReqHandler ([446dd45](https://github.com/codeyourfaceoff/nest4next/commit/446dd4597dc2bf69dd2f66b3f9e366acd69f756e))
+
+
+
 ## [0.1.1-rc.25](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.24...v0.1.1-rc.25) (2022-03-07)
 
 
