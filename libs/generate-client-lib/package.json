@@ -10,10 +10,15 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "@nest4next/bootstrap-server": "*"
+  },
   "peerDependencies": {
-    "@nestjs/common": "*",
-    "@nestjs/core": "*",
     "@nestjs/swagger": "*",
-    "next": "*"
+    "orval": "*"
+  },
+  "optionalDependencies": {
+    "axios": "*",
+    "react-query": "*"
   }
 }
