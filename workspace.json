@@ -4,6 +4,7 @@
     "bootstrap-server": "libs/bootstrap-server",
     "generate-client-lib": "libs/generate-client-lib",
     "next-auth": "libs/next-auth",
+    "prisma": "libs/prisma",
     "web-todo-example": "apps/web-todo-example",
     "web-todo-example-e2e": "apps/web-todo-example-e2e",
     "workspace": {

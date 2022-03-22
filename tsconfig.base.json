@@ -19,7 +19,8 @@
       "@nest4next/generate-client-lib": [
         "libs/generate-client-lib/src/index.ts"
       ],
-      "@nest4next/next-auth": ["libs/next-auth/src/index.ts"]
+      "@nest4next/next-auth": ["libs/next-auth/src/index.ts"],
+      "@nest4next/prisma": ["libs/prisma/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
