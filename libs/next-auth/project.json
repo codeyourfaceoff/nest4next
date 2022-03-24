@@ -14,7 +14,7 @@
         "assets": [
           "libs/next-auth/*.md",
           {
-            "glob": "*",
+            "glob": "next-auth*",
             "input": "patches",
             "output": "patches"
           }
