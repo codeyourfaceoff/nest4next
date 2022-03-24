@@ -1,0 +1,286 @@
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-connect-dto-params.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-connect-dto-params.js
+index 9d40cca..53e9787 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-connect-dto-params.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-connect-dto-params.js
+@@ -3,12 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.computeConnectDtoParams = void 0;
+ const field_classifiers_1 = require("../field-classifiers");
+ const helpers_1 = require("../helpers");
+-const computeConnectDtoParams = ({ model, }) => {
++const computeConnectDtoParams = ({ model, imports, annotateAllDtoProperties }) => {
+     const idFields = model.fields.filter((field) => (0, field_classifiers_1.isId)(field));
+     const isUniqueFields = model.fields.filter((field) => (0, field_classifiers_1.isUnique)(field));
+     const uniqueFields = (0, helpers_1.uniq)([...idFields, ...isUniqueFields]);
+     const overrides = uniqueFields.length > 1 ? { isRequired: false } : {};
+     const fields = uniqueFields.map((field) => (0, helpers_1.mapDMMFToParsedField)(field, overrides));
+-    return { model, fields };
++    return { model, fields, imports,annotateAllDtoProperties };
+ };
+ exports.computeConnectDtoParams = computeConnectDtoParams;
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-create-dto-params.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-create-dto-params.js
+index 29c1b87..2d1be18 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-create-dto-params.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-create-dto-params.js
+@@ -4,7 +4,7 @@ exports.computeCreateDtoParams = void 0;
+ const annotations_1 = require("../annotations");
+ const field_classifiers_1 = require("../field-classifiers");
+ const helpers_1 = require("../helpers");
+-const computeCreateDtoParams = ({ model, allModels, templateHelpers, }) => {
++const computeCreateDtoParams = ({ model, allModels, templateHelpers, annotateAllDtoProperties, }) => {
+     let hasEnum = false;
+     const imports = [];
+     const apiExtraModels = [];
+@@ -58,11 +58,11 @@ const computeCreateDtoParams = ({ model, allModels, templateHelpers, }) => {
+             hasEnum = true;
+         return [...result, (0, helpers_1.mapDMMFToParsedField)(field, overrides)];
+     }, []);
+-    if (apiExtraModels.length || hasEnum) {
++    if (apiExtraModels.length || hasEnum || annotateAllDtoProperties) {
+         const destruct = [];
+         if (apiExtraModels.length)
+             destruct.push('ApiExtraModels');
+-        if (hasEnum)
++        if (hasEnum || annotateAllDtoProperties)
+             destruct.push('ApiProperty');
+         imports.unshift({ from: '@nestjs/swagger', destruct });
+     }
+@@ -75,6 +75,7 @@ const computeCreateDtoParams = ({ model, allModels, templateHelpers, }) => {
+         imports: (0, helpers_1.zipImportStatementParams)(imports),
+         extraClasses,
+         apiExtraModels,
++        annotateAllDtoProperties
+     };
+ };
+ exports.computeCreateDtoParams = computeCreateDtoParams;
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-update-dto-params.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-update-dto-params.js
+index 244dfaa..381f0e1 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-update-dto-params.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/compute-model-params/compute-update-dto-params.js
+@@ -4,7 +4,7 @@ exports.computeUpdateDtoParams = void 0;
+ const annotations_1 = require("../annotations");
+ const field_classifiers_1 = require("../field-classifiers");
+ const helpers_1 = require("../helpers");
+-const computeUpdateDtoParams = ({ model, allModels, templateHelpers, }) => {
++const computeUpdateDtoParams = ({ model, allModels, templateHelpers, annotateAllDtoProperties }) => {
+     let hasEnum = false;
+     const imports = [];
+     const extraClasses = [];
+@@ -50,11 +50,11 @@ const computeUpdateDtoParams = ({ model, allModels, templateHelpers, }) => {
+             hasEnum = true;
+         return [...result, (0, helpers_1.mapDMMFToParsedField)(field, overrides)];
+     }, []);
+-    if (apiExtraModels.length || hasEnum) {
++    if (apiExtraModels.length || hasEnum || annotateAllDtoProperties) {
+         const destruct = [];
+         if (apiExtraModels.length)
+             destruct.push('ApiExtraModels');
+-        if (hasEnum)
++        if (hasEnum || annotateAllDtoProperties)
+             destruct.push('ApiProperty');
+         imports.unshift({ from: '@nestjs/swagger', destruct });
+     }
+@@ -67,6 +67,7 @@ const computeUpdateDtoParams = ({ model, allModels, templateHelpers, }) => {
+         imports: (0, helpers_1.zipImportStatementParams)(imports),
+         extraClasses,
+         apiExtraModels,
++        annotateAllDtoProperties
+     };
+ };
+ exports.computeUpdateDtoParams = computeUpdateDtoParams;
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-connect-dto.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-connect-dto.js
+index e8fb82e..6e75969 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-connect-dto.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-connect-dto.js
+@@ -1,10 +1,10 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.generateConnectDto = void 0;
+-const generateConnectDto = ({ model, fields, templateHelpers: t, }) => {
+-    const template = `
++const generateConnectDto = ({ model, fields, templateHelpers: t, imports, annotateAllDtoProperties }) => {
++    const template = `${t.importStatements(imports)}
+   export class ${t.connectDtoName(model.name)} {
+-    ${t.fieldsToDtoProps(fields, true)}
++    ${t.fieldsToDtoProps(fields, true, false, annotateAllDtoProperties)}
+   }
+   `;
+     return template;
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-create-dto.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-create-dto.js
+index debe751..9d12331 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-create-dto.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-create-dto.js
+@@ -1,14 +1,14 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.generateCreateDto = void 0;
+-const generateCreateDto = ({ model, fields, imports, extraClasses, apiExtraModels, exportRelationModifierClasses, templateHelpers: t, }) => `
++const generateCreateDto = ({ model, fields, imports, extraClasses, apiExtraModels, exportRelationModifierClasses, templateHelpers: t, annotateAllDtoProperties }) => `
+ ${t.importStatements(imports)}
+ 
+ ${t.each(extraClasses, exportRelationModifierClasses ? (content) => `export ${content}` : t.echo, '\n')}
+ 
+ ${t.if(apiExtraModels.length, t.apiExtraModels(apiExtraModels))}
+ export class ${t.createDtoName(model.name)} {
+-  ${t.fieldsToDtoProps(fields, true)}
++  ${t.fieldsToDtoProps(fields, true, false, annotateAllDtoProperties)}
+ }
+ `;
+ exports.generateCreateDto = generateCreateDto;
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-entity.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-entity.js
+index 19b3aa9..87891bb 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-entity.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-entity.js
+@@ -1,7 +1,7 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.generateEntity = void 0;
+-const generateEntity = ({ model, fields, imports, apiExtraModels, templateHelpers: t, }) => `
++const generateEntity = ({ model, fields, imports, apiExtraModels, templateHelpers: t }) => `
+ ${t.importStatements(imports)}
+ 
+ ${t.if(apiExtraModels.length, t.apiExtraModels(apiExtraModels))}
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-update-dto.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-update-dto.js
+index 6d813fc..1a31a29 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-update-dto.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/generate-update-dto.js
+@@ -1,14 +1,14 @@
+ "use strict";
+ Object.defineProperty(exports, "__esModule", { value: true });
+ exports.generateUpdateDto = void 0;
+-const generateUpdateDto = ({ model, fields, imports, extraClasses, apiExtraModels, exportRelationModifierClasses, templateHelpers: t, }) => `
++const generateUpdateDto = ({ model, fields, imports, extraClasses, apiExtraModels, exportRelationModifierClasses, templateHelpers: t, annotateAllDtoProperties = false, }) => `
+ ${t.importStatements(imports)}
+ 
+ ${t.each(extraClasses, exportRelationModifierClasses ? (content) => `export ${content}` : t.echo, '\n')}
+ 
+ ${t.if(apiExtraModels.length, t.apiExtraModels(apiExtraModels))}
+ export class ${t.updateDtoName(model.name)} {
+-  ${t.fieldsToDtoProps(fields, true)}
++  ${t.fieldsToDtoProps(fields, true, false, annotateAllDtoProperties)}
+ }
+ `;
+ exports.generateUpdateDto = generateUpdateDto;
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/index.d.ts b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/index.d.ts
+index b057e42..727bf42 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/index.d.ts
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/index.d.ts
+@@ -12,6 +12,7 @@ interface RunParam {
+     entityPrefix: string;
+     entitySuffix: string;
+     fileNamingStyle: NamingStyle;
++    annotateAllDtoProperties: boolean;
+ }
+ export declare const run: ({ output, dmmf, ...options }: RunParam) => WriteableFileSpecs[];
+ export {};
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/index.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/index.js
+index 91d0fe5..6c790c1 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/index.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/index.js
+@@ -16,7 +16,7 @@ const generate_entity_1 = require("./generate-entity");
+ const annotations_1 = require("./annotations");
+ const field_classifiers_1 = require("./field-classifiers");
+ const run = ({ output, dmmf, ...options }) => {
+-    const { exportRelationModifierClasses, outputToNestJsResourceStructure, fileNamingStyle = 'camel', ...preAndSuffixes } = options;
++    const { exportRelationModifierClasses, outputToNestJsResourceStructure, fileNamingStyle = 'camel', annotateAllDtoProperties, ...preAndSuffixes } = options;
+     const transformers = {
+         camel: case_1.camel,
+         kebab: case_1.kebab,
+@@ -30,6 +30,14 @@ const run = ({ output, dmmf, ...options }) => {
+         ...preAndSuffixes,
+     });
+     const allModels = dmmf.datamodel.models;
++    const imports = annotateAllDtoProperties
++    ? [
++        {
++          from: '@nestjs/swagger',
++          destruct: ['ApiProperty'],
++        },
++      ]
++    : [];
+     const filteredModels = allModels
+         .filter((model) => !(0, field_classifiers_1.isAnnotatedWith)(model, annotations_1.DTO_IGNORE_MODEL))
+         .map((model) => ({
+@@ -55,6 +63,8 @@ const run = ({ output, dmmf, ...options }) => {
+             content: (0, generate_connect_dto_1.generateConnectDto)({
+                 ...modelParams.connect,
+                 templateHelpers,
++                annotateAllDtoProperties,
++                imports,
+             }),
+         };
+         const createDto = {
+@@ -63,6 +73,8 @@ const run = ({ output, dmmf, ...options }) => {
+                 ...modelParams.create,
+                 exportRelationModifierClasses,
+                 templateHelpers,
++                annotateAllDtoProperties,
++                imports,
+             }),
+         };
+         const updateDto = {
+@@ -71,6 +83,8 @@ const run = ({ output, dmmf, ...options }) => {
+                 ...modelParams.update,
+                 exportRelationModifierClasses,
+                 templateHelpers,
++                annotateAllDtoProperties,
++                imports,
+             }),
+         };
+         const entity = {
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/template-helpers.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/template-helpers.js
+index dacf7aa..7c31f1a 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/template-helpers.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/template-helpers.js
+@@ -74,8 +74,18 @@ const makeHelpers = ({ connectDtoPrefix, createDtoPrefix, updateDtoPrefix, dtoSu
+         : field.kind === 'enum' || field.kind === 'relation-input'
+             ? field.type
+             : entityName(field.type)}${(0, exports.when)(field.isList, '[]')}`;
+-    const fieldToDtoProp = (field, useInputTypes = false, forceOptional = false) => `${(0, exports.when)(field.kind === 'enum', `@ApiProperty({ enum: ${fieldType(field, useInputTypes)}})\n`)}${field.name}${(0, exports.unless)(field.isRequired && !forceOptional, '?')}: ${fieldType(field, useInputTypes)};`;
+-    const fieldsToDtoProps = (fields, useInputTypes = false, forceOptional = false) => `${(0, exports.each)(fields, (field) => fieldToDtoProp(field, useInputTypes, forceOptional), '\n')}`;
++    const fieldToDtoProp = (field, useInputTypes = false, forceOptional = false, annotateAllDtoProperties = false) =>
++        `${(0, exports.when)(
++            field.kind === 'enum',
++            `@ApiProperty({ enum: ${fieldType(field, useInputTypes)}})\n`,
++        )}${when(
++            field.kind !== 'enum' && annotateAllDtoProperties,
++            `@ApiProperty()\n  `,
++        )}${field.name}${(0, exports.unless)(
++            field.isRequired && !forceOptional,
++            '?',
++        )}: ${fieldType(field, useInputTypes)};`
++    const fieldsToDtoProps = (fields, useInputTypes = false, forceOptional = false, annotateAllDtoProperties = false) => `${(0, exports.each)(fields, (field) => fieldToDtoProp(field, useInputTypes, forceOptional, annotateAllDtoProperties), '\n')}`;
+     const fieldToEntityProp = (field) => `${field.name}${(0, exports.unless)(field.isRequired, '?')}: ${fieldType(field)} ${(0, exports.when)(field.isNullable, ' | null')};`;
+     const fieldsToEntityProps = (fields) => `${(0, exports.each)(fields, (field) => fieldToEntityProp(field), '\n')}`;
+     const apiExtraModels = (names) => `@ApiExtraModels(${names.map(entityName)})`;
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/types.d.ts b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/types.d.ts
+index b4e2f2c..ae57892 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/types.d.ts
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/generator/types.d.ts
+@@ -30,6 +30,7 @@ export interface DtoParams {
+     model: DMMF.Model;
+     fields: ParsedField[];
+     imports: ImportStatementParams[];
++    annotateAllDtoProperties: boolean;
+ }
+ export declare type ConnectDtoParams = Omit<DtoParams, 'imports'>;
+ export interface CreateDtoParams extends DtoParams {
+diff --git a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/index.js b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/index.js
+index 306faf7..e040f39 100644
+--- a/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/index.js
++++ b/node_modules/@vegardit/prisma-generator-nestjs-dto/dist/index.js
+@@ -25,6 +25,7 @@ const generate = (options) => {
+     const { connectDtoPrefix = 'Connect', createDtoPrefix = 'Create', updateDtoPrefix = 'Update', dtoSuffix = 'Dto', entityPrefix = '', entitySuffix = '', fileNamingStyle = 'camel', } = options.generator.config;
+     const exportRelationModifierClasses = (0, exports.stringToBoolean)(options.generator.config.exportRelationModifierClasses, true);
+     const outputToNestJsResourceStructure = (0, exports.stringToBoolean)(options.generator.config.outputToNestJsResourceStructure, false);
++    const annotateAllDtoProperties = (0, exports.stringToBoolean)(options.generator.config.annotateAllDtoProperties, false);
+     const reExport = (0, exports.stringToBoolean)(options.generator.config.reExport, false);
+     const supportedFileNamingStyles = ['kebab', 'camel', 'pascal', 'snake'];
+     const isSupportedFileNamingStyle = (style) => supportedFileNamingStyles.includes(style);
+@@ -45,6 +46,7 @@ const generate = (options) => {
+         entityPrefix,
+         entitySuffix,
+         fileNamingStyle,
++        annotateAllDtoProperties,
+     });
+     const indexCollections = {};
+     if (reExport) {

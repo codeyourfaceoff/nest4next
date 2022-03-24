@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Temp prisma file to test patches of prisma-generator-nestjs-dto
+
+generator client {
+  provider = "prisma-client-js"
+  // previewFeatures = ["referentialIntegrity"]
+}
+
+generator nestjsDto {
+  provider                        = "prisma-generator-nestjs-dto"
+  output                          = "dtos"
+  outputToNestJsResourceStructure = "false"
+  exportRelationModifierClasses   = "true"
+  reExport                        = "true"
+  annotateAllDtoProperties        = "true"
+  createDtoPrefix                 = "Create"
+  updateDtoPrefix                 = "Update"
+  dtoSuffix                       = "Dto"
+  entityPrefix                    = ""
+  entitySuffix                    = ""
+  fileNamingStyle                 = "camel"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+  // referentialIntegrity = "prisma"
+}
+
+model Company {
+  id    String @id @default(uuid())
+  title String
+
+  product    Product[]
+  categories CategoriesOnCompanies[]
+}
+
+model Category {
+  id   String @id @default(uuid())
+  name String
+
+  product   Product[]
+  companies CategoriesOnCompanies[]
+}
+
+model CategoriesOnCompanies {
+  company    Company  @relation(fields: [companyId], references: [id])
+  companyId  String
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String // relation scalar field (used in the `@relation` attribute above)
+  assignedAt DateTime @default(now())
+  assignedBy String
+
+  @@id([companyId, categoryId])
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  highlighted Boolean? @default(false)
+  reviewCount Int?     @default(0)
+  score       Float?
+  categoryId  String
+  companyId   String
+
+  /// @DtoRelationRequired
+  /// @DtoRelationCanConnectOnCreate
+  category Category @relation(fields: [categoryId], references: [id])
+
+  /// @DtoRelationRequired
+  /// @DtoRelationCanConnectOnCreate
+  company Company @relation(fields: [companyId], references: [id])
+
+  /// @DtoEntityHidden
+  /// @DtoCreateOptional
+  /// @DtoUpdateOptional
+  createdAt DateTime @default(now())
+
+  /// @DtoEntityHidden
+  /// @DtoCreateOptional
+  /// @DtoUpdateOptional
+  updatedAt DateTime @updatedAt
+
+  @@map("products")
+}

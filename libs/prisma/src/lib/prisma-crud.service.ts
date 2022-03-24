@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/ban-types */
 import camelcase from 'lodash.camelcase';
 import mapSeriesAsync from 'map-series-async';
@@ -15,7 +16,6 @@ import {
 } from '@nestjsx/crud-request';
 import {
   CrudService,
-  Delegate,
   WhereInput,
   HashMap,
   PrismaFilter,
@@ -47,22 +47,29 @@ export interface ColumnTypes {
   [key: string]: ColumnType;
 }
 
-export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
-  public tableName: string;
+export type FilterNotStartingWith<
+  Set,
+  Needle extends string
+> = Set extends `${Needle}${infer _X}` ? never : Set;
+export type PrismaModelKeys = FilterNotStartingWith<keyof PrismaClient, '$'>;
 
-  public client: Delegate;
+export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
+  public tableName: PrismaModelKeys;
+
+  public client: PrismaClient[PrismaModelKeys];
 
   private columns: ColumnTypes | undefined;
 
   constructor(public prisma: PrismaClient, entity: Function) {
     super();
-    this.tableName = camelcase(entity.name);
+    this.tableName = camelcase(entity.name) as PrismaModelKeys;
     this.client = this.prisma[this.tableName];
     this.getColumns();
   }
 
   async getColumns(): Promise<ColumnTypes> {
     if (this.columns) return this.columns;
+    // @ts-ignore
     const result = (await this.client.findMany({ take: 1 }))?.[0] || {};
     this.columns = Object.entries(result).reduce(
       (columns: ColumnTypes, [key, value]: [string, any]) => {
@@ -95,6 +102,7 @@ export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
   }: CrudRequest): Promise<GetManyDefaultResponse<ModelType> | ModelType[]> {
     const isPaginated = this.decidePagination(parsed, options);
     try {
+      // @ts-ignore
       const result = await this.client.findMany({
         ...(parsed.sort.length > 0
           ? {
@@ -130,7 +138,8 @@ export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
         ...(isPaginated && parsed.offset ? { skip: parsed.offset } : {}),
       });
       if (isPaginated) {
-        const total = await this.client['count']();
+        // @ts-ignore
+        const total = await this.client.count();
         const { limit, offset } = parsed;
         const response: GetManyDefaultResponse<ModelType> = {
           data: result,
@@ -156,7 +165,8 @@ export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
   async getOne(req: CrudRequest): Promise<ModelType> {
     const userID = req.parsed.paramsFilter[0];
     try {
-      const res = await this.client['findUnique']({
+      // @ts-ignore
+      const res = await this.client.findUnique({
         where: {
           id: userID.value,
         },
@@ -173,6 +183,7 @@ export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
 
   async createOne(_req: CrudRequest, dto: ModelType): Promise<ModelType> {
     try {
+      // @ts-ignore
       const res = await this.client.create({
         data: dto,
       });
@@ -196,6 +207,7 @@ export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
       dto.bulk.map(async (item: any) => {
         let res;
         try {
+          // @ts-ignore
           res = await this.client.create({
             data: item,
           });
@@ -217,6 +229,7 @@ export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
     const userID = req.parsed.paramsFilter[0];
     let res;
     try {
+      // @ts-ignore
       res = await this.client.update({
         where: {
           id: userID.value,
@@ -242,6 +255,7 @@ export class PrismaCrudService<ModelType> extends CrudService<ModelType> {
   async deleteOne(req: CrudRequest): Promise<void | ModelType> {
     const userID = req.parsed.paramsFilter[0];
     try {
+      // @ts-ignore
       const res = await this.client.delete({
         where: {
           id: userID.value,

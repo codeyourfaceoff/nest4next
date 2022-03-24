@@ -40,3 +40,6 @@ Thumbs.db
 
 # Custom db files
 _data_/
+
+# prisma generated
+prisma/dtos/
