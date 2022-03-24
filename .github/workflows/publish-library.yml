@@ -35,6 +35,6 @@ jobs:
           restore-keys: npm-
       - run: npm ci --cache ~/.npm --prefer-offline
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-      - run: npx nx deploy ${{ matrix.package }}
+      - run: npx nx run ${{ matrix.package }}:deploy
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
