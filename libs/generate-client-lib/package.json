@@ -10,10 +10,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {
-    "@nest4next/bootstrap-server": "*"
-  },
   "peerDependencies": {
+    "@nest4next/bootstrap-server": "*",
     "@nestjs/swagger": "*",
     "orval": "*"
   },
