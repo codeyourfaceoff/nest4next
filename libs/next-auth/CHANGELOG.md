@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.28](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.27...v0.1.1-rc.28) (2022-03-24)
+
+
+### Bug Fixes
+
+* **libs:** set bootstrap-server as peer dep ([cded6a1](https://github.com/codeyourfaceoff/nest4next/commit/cded6a11c0cb469ddb6294e8103ac7f29b71736c))
+
+
+
 ## [0.1.1-rc.27](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.26...v0.1.1-rc.27) (2022-03-24)
 
 
