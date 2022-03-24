@@ -12,7 +12,8 @@ jobs:
         package: [
           'bootstrap-server',
           'generate-client-lib',
-          'next-auth'
+          'next-auth',
+          'prisma'
         ]
     runs-on: ubuntu-latest
     permissions:
