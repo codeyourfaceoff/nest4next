@@ -9,7 +9,6 @@ import { TypeValue } from 'type-graphql/dist/decorators/types';
 import CrudRoutesFactoryShim from './crudRoutesFactoryShim';
 import { Field, HashMap } from './types';
 
-// @ts-ignore
 export class PrismaCrudRoutesFactory extends CrudRoutesFactoryShim {
   protected override swaggerModels: any = {};
 
@@ -19,11 +18,14 @@ export class PrismaCrudRoutesFactory extends CrudRoutesFactoryShim {
     super(target, options);
   }
 
-  static create(target: any, options: CrudOptions): PrismaCrudRoutesFactory {
+  static override create(
+    target: any,
+    options: CrudOptions
+  ): PrismaCrudRoutesFactory {
     return new PrismaCrudRoutesFactory(target, options);
   }
 
-  protected setResponseModels() {
+  protected override setResponseModels() {
     const prismaModelType = isFunction(this.modelType)
       ? this.modelType
       : SerializeHelper.createGetOneResponseDto(this.modelName);
