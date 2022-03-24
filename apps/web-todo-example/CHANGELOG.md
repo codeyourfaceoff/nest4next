@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.27](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.26...v0.1.1-rc.27) (2022-03-24)
+
+
+### Features
+
+* **prisma:** add prisma-crud-service ([a2f53b9](https://github.com/codeyourfaceoff/nest4next/commit/a2f53b9b3bb41dd7022a94ef0e154e99bf2c3637))
+
+
+
 ## [0.1.1-rc.26](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.25...v0.1.1-rc.26) (2022-03-07)
 
 

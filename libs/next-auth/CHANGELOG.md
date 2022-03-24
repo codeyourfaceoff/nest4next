@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.27](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.26...v0.1.1-rc.27) (2022-03-24)
+
+
+### Bug Fixes
+
+* **libs:** :pushpin: lock deps ([86e6663](https://github.com/codeyourfaceoff/nest4next/commit/86e66631eaba44aeda2c75a93624fda5f3f9b83e))
+* **next-auth:** more specific patch glob ([3d475c1](https://github.com/codeyourfaceoff/nest4next/commit/3d475c170873c3cacb9975a9a0ce34ecc1faa811))
+
+
+
 ## [0.1.1-rc.26](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.25...v0.1.1-rc.26) (2022-03-07)
 
 
