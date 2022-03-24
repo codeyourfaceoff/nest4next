@@ -13,7 +13,6 @@
     "postinstall": "patch-package --patch-dir ./node_modules/@nest4next/next-auth/patches"
   },
   "peerDependencies": {
-    "@nest4next/bootstrap-server": "*",
     "patch-package": "*",
     "next-auth": "*"
   }
