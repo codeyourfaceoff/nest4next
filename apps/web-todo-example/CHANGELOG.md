@@ -2,6 +2,10 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.31](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.30...v0.1.1-rc.31) (2022-03-24)
+
+
+
 ## [0.1.1-rc.30](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.29...v0.1.1-rc.30) (2022-03-24)
 
 

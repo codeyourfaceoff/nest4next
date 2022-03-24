@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.31](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.30...v0.1.1-rc.31) (2022-03-24)
+
+
+### Bug Fixes
+
+* **libs:** remove peerDep of bootstrap-server ([1faeede](https://github.com/codeyourfaceoff/nest4next/commit/1faeedeba5879308a08908bab63257603171db0f))
+* **prisma:** track nestjs-crud-prisma lib ([a6859a5](https://github.com/codeyourfaceoff/nest4next/commit/a6859a5f969ad854efff3d5a2c72c03d8c284cc2))
+
+
+
 ## [0.1.1-rc.30](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.29...v0.1.1-rc.30) (2022-03-24)
 
 
