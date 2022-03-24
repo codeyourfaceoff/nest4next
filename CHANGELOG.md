@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.32](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.31...v0.1.1-rc.32) (2022-03-24)
+
+
+### Bug Fixes
+
+* **prisma:** override typings ([3989429](https://github.com/codeyourfaceoff/nest4next/commit/39894294f08657540292de5b0524e26aa5621708))
+
+
+
 ## [0.1.1-rc.31](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.30...v0.1.1-rc.31) (2022-03-24)
 
 
