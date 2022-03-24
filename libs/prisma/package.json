@@ -1,5 +1,14 @@
 {
   "name": "@nest4next/prisma",
   "version": "0.0.1",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "@nestjsx/crud": "*",
+    "@nestjsx/crud-request": "*",
+    "@nestjsx/util": "*",
+    "@prisma/client": "*",
+    "lodash.camelcase": "*",
+    "map-series-async": "*",
+    "type-graphql": "*"
+  }
 }

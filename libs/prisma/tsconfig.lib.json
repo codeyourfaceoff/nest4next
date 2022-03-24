@@ -3,6 +3,8 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "declaration": true,
+    "useUnknownInCatchVariables": false,
+    "noImplicitOverride": false,
     "types": []
   },
   "include": ["**/*.ts"],
