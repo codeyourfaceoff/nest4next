@@ -1,6 +1,6 @@
 {
   "name": "@nest4next/prisma",
-  "version": "0.1.1-rc.34",
+  "version": "0.1.1-rc.35",
   "type": "commonjs",
   "dependencies": {
     "@nestjsx/crud": "*",
