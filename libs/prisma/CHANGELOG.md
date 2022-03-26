@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.34](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.33...v0.1.1-rc.34) (2022-03-26)
+
+
+### Features
+
+* **prisma:** export prisma service ([4c7c5da](https://github.com/codeyourfaceoff/nest4next/commit/4c7c5daaebed763009128884d33e3caee58f4225))
+* **prisma:** generate entity dtos ([38e1c91](https://github.com/codeyourfaceoff/nest4next/commit/38e1c91731a646d23ad24521ba20592977f70f68))
+
+
+
 ## [0.1.1-rc.33](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.32...v0.1.1-rc.33) (2022-03-24)
 
 

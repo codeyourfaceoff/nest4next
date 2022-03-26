@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1-rc.34](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.33...v0.1.1-rc.34) (2022-03-26)
+
+
+### Features
+
+* **bootstrap-server:** add ssr-utils ([4b1fc30](https://github.com/codeyourfaceoff/nest4next/commit/4b1fc30339b342bcbe91d39464ffa023ac8eff4f))
+
+
+
 ## [0.1.1-rc.33](https://github.com/codeyourfaceoff/nest4next/compare/v0.1.1-rc.32...v0.1.1-rc.33) (2022-03-24)
 
 
