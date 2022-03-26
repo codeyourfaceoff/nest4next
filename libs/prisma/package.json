@@ -7,6 +7,7 @@
     "@nestjsx/crud-request": "*",
     "@nestjsx/util": "*",
     "@prisma/client": "*",
+    "@vegardit/prisma-generator-nestjs-dto": "*",
     "lodash.camelcase": "*",
     "map-series-async": "*",
     "type-graphql": "*"
